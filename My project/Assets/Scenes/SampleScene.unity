@@ -20582,6 +20582,7 @@ GameObject:
   - component: {fileID: 1309474966}
   - component: {fileID: 1309474968}
   - component: {fileID: 1309474967}
+  - component: {fileID: 1309474969}
   m_Layer: 0
   m_Name: Submarin
   m_TagString: Untagged
@@ -20598,7 +20599,7 @@ Transform:
   m_GameObject: {fileID: 1309474965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1104, y: -103, z: 401.7}
+  m_LocalPosition: {x: -1037, y: -103, z: 401.7}
   m_LocalScale: {x: 4.9032, y: 4.9032, z: 4.9032}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20649,6 +20650,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1309474969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309474965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c564bda223aeb244b8d8605582d01ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submarineCenter: {fileID: 552610759}
+  cylinderPrefab: {fileID: 8941328389630474621, guid: a49e2ba37fcd34a43a70cda447e222ac, type: 3}
 --- !u!1 &1352004083
 GameObject:
   m_ObjectHideFlags: 0
@@ -25684,7 +25699,7 @@ Transform:
   m_GameObject: {fileID: 1770069364}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071064, y: 0.0007343359, z: 0.0007343359, w: 0.7071064}
-  m_LocalPosition: {x: 1.3, y: -40.8, z: 493}
+  m_LocalPosition: {x: 1.3, y: -40, z: 493}
   m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_ConstrainProportionsScale: 0
   m_Children: []
