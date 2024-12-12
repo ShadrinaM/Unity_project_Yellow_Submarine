@@ -7,6 +7,8 @@ public class MouseClickHandler : MonoBehaviour
     public Transform submarineCenter; // Центр субмарины
     public GameObject cylinderPrefab; // Префаб цилиндра
 
+    private Vector3? lastPoint = null; // Последняя точка клика (null до первого клика)
+
     void Update()
     {
         // Проверяем нажатие левой кнопки мыши
@@ -20,7 +22,20 @@ public class MouseClickHandler : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 hitPoint = hit.point; // Точка, куда попал луч
-                CreateCylinder(submarineCenter.position, hitPoint); // Создаём цилиндр
+
+                if (lastPoint == null)
+                {
+                    // Если это первый клик, строим от субмарины
+                    CreateCylinder(submarineCenter.position, hitPoint);
+                }
+                else
+                {
+                    // Если это не первый клик, строим от последней точки
+                    CreateCylinder(lastPoint.Value, hitPoint);
+                }
+
+                // Сохраняем текущую точку как последнюю
+                lastPoint = hitPoint;
             }
         }
     }
@@ -33,9 +48,21 @@ public class MouseClickHandler : MonoBehaviour
 
         // Создаём цилиндр
         GameObject cylinder = Instantiate(cylinderPrefab);
-        cylinder.transform.position = startPoint + direction / 2; // Устанавливаем позицию (середина между точками)
-        cylinder.transform.rotation = Quaternion.LookRotation(direction); // Направляем цилиндр к цели
-        cylinder.transform.localScale = new Vector3(8, distance / 2, 8); // Увеличена ширина
-    }
 
+        // Устанавливаем позицию (середина между начальной и конечной точками)
+        cylinder.transform.position = startPoint + direction / 2;
+
+        // Направляем цилиндр, но с учётом оси Y
+        cylinder.transform.up = direction.normalized;
+
+        // Настраиваем длину и ширину цилиндра
+        cylinder.transform.localScale = new Vector3(3, distance / 2, 0.3f);
+
+        // Убираем физическое воздействие от цилиндра
+        Collider collider = cylinder.GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.isTrigger = true; // Убираем взаимодействие через физику
+        }
+    }
 }
