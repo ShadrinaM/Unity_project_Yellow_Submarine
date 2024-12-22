@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: e1a3fa0611745524997edbcfdc7701b2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - botinockPrefab: {fileID: 5036900849590503482, guid: 4b4e65276cb25a64eb18c106318238c0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
